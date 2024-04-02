@@ -2,8 +2,8 @@ import { useContext } from 'react';
 
 import { CartContext } from "../store/shopping-cart-context";
 
-export default function Cart({ onUpdateItemQuantity }) {
-  const { items } = useContext(CartContext); //destructure items from CartContext so we dont
+export default function Cart() {
+  const { items, updateItemQuantity } = useContext(CartContext); //destructure items from CartContext so we dont
   //have to use cartCtx.items.lenght etc... and use just items.length
 
 
@@ -28,11 +28,11 @@ export default function Cart({ onUpdateItemQuantity }) {
                   <span> ({formattedPrice})</span>
                 </div>
                 <div className="cart-item-actions">
-                  <button onClick={() => onUpdateItemQuantity(item.id, -1)}>
+                  <button onClick={() => updateItemQuantity(item.id, -1)}>
                     -
                   </button>
                   <span>{item.quantity}</span>
-                  <button onClick={() => onUpdateItemQuantity(item.id, 1)}>
+                  <button onClick={() => updateItemQuantity(item.id, 1)}>
                     +
                   </button>
                 </div>
